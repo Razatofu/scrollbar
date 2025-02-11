@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Style horizontal scroll k liay */
+    .image-container {
+      width: 100%;
+      overflow-x: auto;  /* Enable horizontal scrolling */
+      white-space: nowrap;  /* Ensure images stay in a single line */
+      padding: 20px 0;
+      transition: scroll 0.3s ease;  /* Optional: Smooth scroll transition */
+    }
+
+    .image-container  {
+      max-width: 90%;  /* Set max-width for images */
+      height: auto;
+      margin: 0 10px;  /* Add space between images */
+      display: inline-block;  /* Display images inline */
+      transition: opacity 1s ease-in-out;  /* Optional: smooth transition effect */
+    }
+
+    /* Optional: Add a custom scrollbar style */
+    .image-container::-webkit-scrollbar {
+      height: 12px;
+    }
+
+    .image-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .image-container::-webkit-scrollbar-thumb {
+      background: #04AA6D;
+      border-radius: 10px;
+    }
+
+    .image-container::-webkit-scrollbar-thumb:hover {
+      background: #03995B;
+    }
+
+    /* Button styles */
+    .scroll-button {
+      padding: 10px 20px;
+      font-size: 36px;
+      background-color: #04AA6D;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 300px;
+      height: 100px;
+    }
+
+    .scroll-button:hover {
+      background-color: #180366;
+    }
+
+    .Scroll-Button {
+      padding: 10px 20px;
+      font-size: 36px;
+      background-color: #04AA6D;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 300px;
+      height: 100px;
+    }
+
+    .Scroll-Button:hover {
+      background-color: #200168;
+    }
+
+
+    img{
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Horizontal Image Scroll with Button</h1>
+
+  <!-- Image container with scrollable images -->
+  <div class="image-container" id="imageContainer">
+    <img src="images\0.jpg" alt="Image 1">
+    <img src="images/2.jpg" alt="Image 2">
+    <img src="images/3.jpg" alt="Image 3">
+    <img src="images/4.jpg" alt="Image 4">
+    <img src="images/5.jpg" alt="Image 5">
+    <img src="images/6.jpg" alt="Image 6">
+    <img src="images/7.jpg" alt="Image 7">
+    <img src="images/8.jpg" alt="Image 8">
+    <img src="images/9.jpg" alt="Image 9">
+    <img src="images/10.jpg" alt="Image 10">
+  </div>
+
+  <!-- Scroll button -->
+  <button class="scroll-button" id="scrollButton">Scroll LEFT</button> 
+  <button class="Scroll-Button" id="ScrollButton">Scroll RIGHT</button>
+
+  <script>
+    // Get the image container and scroll button
+    const imageContainer = document.getElementById('imageContainer');
+    const scrollButton = document.getElementById('scrollButton');
+    // const imageContainer = document.getElementById('imageContainer');
+    const ScrollButton = document.getElementById('ScrollButton');
+
+
+   // Function to scroll the container ko horizontally slide karay ga
+    function scrollImages() {
+      const scrollAmount = 500; // The number of pixels 
+      imageContainer.scrollBy({
+        left: scrollAmount, // Scroll to the right
+        behavior: 'smooth'  // Smooth scroll animation
+      });
+    }
+
+    function ScrollImages() {
+      const scrollAmount = 500; // The number of pixels to scroll is ki length lay ga
+      imageContainer.scrollBy({
+        left: -scrollAmount, // Scroll to the left minus laga k
+        behavior: 'smooth'  // Smooth scroll animation
+      });
+    }
+    // Event listener for the button click jo isko call karay ga
+    scrollButton.addEventListener('click', scrollImages);
+    ScrollButton.addEventListener('click', ScrollImages);
+  </script>
+
+</body>
+</html>
